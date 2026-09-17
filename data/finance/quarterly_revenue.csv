@@ -1,0 +1,45 @@
+Year,Quarter,Region,Product,Revenue_USD,Units_Sold
+2025,Q1,North America,Warehouse Bot S1,1850000,74
+2025,Q1,North America,Warehouse Bot X2,2400000,48
+2025,Q1,North America,Software Subscription,610000,1220
+2025,Q1,EMEA,Warehouse Bot S1,940000,38
+2025,Q1,EMEA,Warehouse Bot X2,1120000,22
+2025,Q1,EMEA,Software Subscription,285000,570
+2025,Q1,APAC,Warehouse Bot S1,510000,20
+2025,Q1,APAC,Warehouse Bot X2,430000,9
+2025,Q1,APAC,Software Subscription,140000,280
+2025,Q1,LATAM,Warehouse Bot S1,180000,7
+2025,Q1,LATAM,Software Subscription,52000,104
+2025,Q2,North America,Warehouse Bot S1,1920000,77
+2025,Q2,North America,Warehouse Bot X2,2610000,52
+2025,Q2,North America,Software Subscription,655000,1310
+2025,Q2,EMEA,Warehouse Bot S1,980000,39
+2025,Q2,EMEA,Warehouse Bot X2,1205000,24
+2025,Q2,EMEA,Software Subscription,301000,602
+2025,Q2,APAC,Warehouse Bot S1,545000,22
+2025,Q2,APAC,Warehouse Bot X2,470000,10
+2025,Q2,APAC,Software Subscription,158000,316
+2025,Q2,LATAM,Warehouse Bot S1,205000,8
+2025,Q2,LATAM,Software Subscription,61000,122
+2025,Q3,North America,Warehouse Bot S1,2010000,80
+2025,Q3,North America,Warehouse Bot X2,2780000,55
+2025,Q3,North America,Software Subscription,702000,1404
+2025,Q3,EMEA,Warehouse Bot S1,1015000,41
+2025,Q3,EMEA,Warehouse Bot X2,1340000,27
+2025,Q3,EMEA,Software Subscription,318000,636
+2025,Q3,APAC,Warehouse Bot S1,590000,24
+2025,Q3,APAC,Warehouse Bot X2,515000,11
+2025,Q3,APAC,Software Subscription,171000,342
+2025,Q3,LATAM,Warehouse Bot S1,228000,9
+2025,Q3,LATAM,Software Subscription,68000,136
+2025,Q4,North America,Warehouse Bot S1,2150000,86
+2025,Q4,North America,Warehouse Bot X2,2950000,59
+2025,Q4,North America,Software Subscription,748000,1496
+2025,Q4,EMEA,Warehouse Bot S1,1080000,43
+2025,Q4,EMEA,Warehouse Bot X2,1425000,29
+2025,Q4,EMEA,Software Subscription,334000,668
+2025,Q4,APAC,Warehouse Bot S1,635000,26
+2025,Q4,APAC,Warehouse Bot X2,560000,12
+2025,Q4,APAC,Software Subscription,184000,368
+2025,Q4,LATAM,Warehouse Bot S1,250000,10
+2025,Q4,LATAM,Software Subscription,75000,150

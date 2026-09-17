@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "chatbot"
+name = "ragbench"
 version = "0.1.0"
-description = "Chatbot API built with FastAPI"
+description = "RAGBench: a multi-strategy RAG API with a built-in retrieval/ingestion evaluation harness"
 authors = ["Hemakumar Gokulakannan <hemakumargokul@gmail.com>"]
 package-mode = false
 
@@ -28,6 +28,9 @@ ddgs = "*"
 beautifulsoup4 = "^4.14.3"
 pymupdf4llm = "^0.3.4"
 rank-bm25 = "^0.2.2"
+pandas = "^2.2.0"
+openpyxl = "^3.1.0"
+google-cloud-documentai = "^2.29.0"
 
 
 

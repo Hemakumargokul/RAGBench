@@ -4,4 +4,7 @@ __pycache__/
 .venv/
 .claude/
 todo
+ingestion_cache
 ingestion_cache/
+faiss_index_v*/
+eval/results/

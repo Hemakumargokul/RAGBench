@@ -23,9 +23,11 @@ class FAISSStore(BaseVectorStore):
             self._store.add_documents(documents)
         self._store.save_local(self._index_path)
 
-    def get_retriever(self, score_threshold: float = 0.0) -> VectorStoreRetriever:
+    def get_retriever(self, score_threshold: float | None = 0.0) -> VectorStoreRetriever:
         if self._store is None:
             raise RuntimeError("No documents indexed yet")
+        if score_threshold is None:
+            return self._store.as_retriever(search_type="similarity", search_kwargs={"k": 5})
         return self._store.as_retriever(search_type="similarity_score_threshold", search_kwargs={"score_threshold": score_threshold})
 
     def add_embeddings(self, texts_and_embeddings: list[tuple[str, list[float]]], metadatas: list[dict]) -> None:

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "k8s-1",
+    "question": "What happens to a volume when the pod that encloses it is deleted?",
+    "category": "prose",
+    "expected_keywords": ["volume", "deleted"],
+    "expected_source_contains": "Kubernetes-eBook.pdf"
+  },
+  {
+    "id": "k8s-2",
+    "question": "What is the sole responsibility of a replication controller in Kubernetes?",
+    "category": "prose",
+    "expected_keywords": ["replication controller", "replicas"],
+    "expected_source_contains": "Kubernetes-eBook.pdf"
+  },
+  {
+    "id": "k8s-3",
+    "question": "Name a couple of examples of persistent volume types supported by Kubernetes.",
+    "category": "prose",
+    "expected_keywords": ["EBS", "Azure", "NFS", "GlusterFS", "CephFS"],
+    "expected_source_contains": "Kubernetes-eBook.pdf"
+  },
+  {
+    "id": "k8s-4",
+    "question": "When was Kubernetes originally announced, and by whom?",
+    "category": "prose",
+    "expected_keywords": ["2014", "Google"],
+    "expected_source_contains": "Kubernetes-eBook.pdf"
+  },
+  {
+    "id": "k8s-5",
+    "question": "What is the current price of Bitcoin?",
+    "category": "adversarial",
+    "expected_keywords": [],
+    "expected_source_contains": null
+  }
+]

@@ -1,3 +1,4 @@
+import time
 import logging
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -27,26 +28,45 @@ Question: {question}
 
 Answer:""")
 
-async def ask(question: str, llm: BaseChatModel, vector_store: BaseVectorStore, strategy: str = "v1") -> str:
-    if strategy == "v2":
+def _build_retriever(vector_store: BaseVectorStore, strategy: str):
+    if strategy in ("v2", "v3", "v4"):
         all_docs = vector_store.get_all_documents()
-        faiss_retriever = vector_store.get_retriever(score_threshold=0.0)
+        # v1/v2 keep score_threshold=0.0 unchanged as baselines; v3/v4 use plain
+        # top-k (score_threshold=None) since the threshold itself is proven broken
+        # (see eval/known_issues.py) rather than genuinely disabled at 0.0.
+        faiss_retriever = vector_store.get_retriever(score_threshold=None if strategy in ("v3", "v4") else 0.0)
         if all_docs:
             bm25_retriever = BM25Retriever.from_documents(all_docs, k=5)
-            retriever = EnsembleRetriever(
-                retrievers=[faiss_retriever, bm25_retriever],
-                weights=[0.6, 0.4]
-            )
+            retriever = EnsembleRetriever(retrievers=[faiss_retriever, bm25_retriever], weights=[0.6, 0.4])
         else:
             retriever = faiss_retriever
-        logger.info("v2: using hybrid retriever")
+        logger.info("%s: using hybrid retriever", strategy)
     else:
         retriever = vector_store.get_retriever(score_threshold=0.0)
         logger.info("v1: using FAISS retriever")
+    return retriever
 
+async def ask_with_trace(question: str, llm: BaseChatModel, vector_store: BaseVectorStore, strategy: str = "v1") -> dict:
+    retriever = _build_retriever(vector_store, strategy)
+
+    t0 = time.perf_counter()
     docs = await retriever.ainvoke(question)
+    retrieval_ms = (time.perf_counter() - t0) * 1000
     context = "\n\n".join(doc.page_content for doc in docs) if docs else ""
     logger.info("Retrieved %d chunks (strategy=%s)\nContext:\n%s", len(docs), strategy, context)
 
     prompt_value = _PROMPT.invoke({"context": context, "question": question})
-    return await (llm | StrOutputParser()).ainvoke(prompt_value)
+    t0 = time.perf_counter()
+    reply = await (llm | StrOutputParser()).ainvoke(prompt_value)
+    generation_ms = (time.perf_counter() - t0) * 1000
+
+    return {
+        "reply": reply,
+        "context_docs": docs,
+        "retrieval_ms": retrieval_ms,
+        "generation_ms": generation_ms,
+    }
+
+async def ask(question: str, llm: BaseChatModel, vector_store: BaseVectorStore, strategy: str = "v1") -> str:
+    result = await ask_with_trace(question, llm, vector_store, strategy)
+    return result["reply"]

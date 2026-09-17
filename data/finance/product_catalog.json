@@ -1,0 +1,44 @@
+[
+  {
+    "sku": "WB-S1",
+    "name": "Warehouse Bot S1",
+    "category": "Hardware",
+    "price_usd": 25000,
+    "in_stock": true
+  },
+  {
+    "sku": "WB-X2",
+    "name": "Warehouse Bot X2",
+    "category": "Hardware",
+    "price_usd": 50000,
+    "in_stock": true
+  },
+  {
+    "sku": "WB-X2-LIDAR",
+    "name": "Warehouse Bot X2 LIDAR Upgrade Kit",
+    "category": "Hardware Accessory",
+    "price_usd": 4200,
+    "in_stock": false
+  },
+  {
+    "sku": "SUB-STD",
+    "name": "Software Subscription - Standard",
+    "category": "Subscription",
+    "price_usd": 500,
+    "in_stock": true
+  },
+  {
+    "sku": "SUB-PRO",
+    "name": "Software Subscription - Pro (fleet analytics)",
+    "category": "Subscription",
+    "price_usd": 1200,
+    "in_stock": true
+  },
+  {
+    "sku": "FS-ONSITE",
+    "name": "Field Service - Onsite Visit",
+    "category": "Service",
+    "price_usd": 800,
+    "in_stock": true
+  }
+]

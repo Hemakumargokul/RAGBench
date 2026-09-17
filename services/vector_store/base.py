@@ -8,7 +8,11 @@ class BaseVectorStore(ABC):
         pass
 
     @abstractmethod
-    def get_retriever(self, score_threshold: float = 0.0) -> VectorStoreRetriever:
+    def get_retriever(self, score_threshold: float | None = 0.0) -> VectorStoreRetriever:
+        """score_threshold=None requests plain top-k similarity search, bypassing
+        the relevance-score-threshold filter entirely (see v3 usage in rag_service.py
+        for why: the threshold is miscalibrated for OpenAI embeddings and can filter
+        out the single most relevant chunk even at moderate values)."""
         pass
 
     @abstractmethod

@@ -1,0 +1,45 @@
+[
+  {
+    "id": "py-1",
+    "question": "According to the book, what is the key difference between an interpreted and a compiled programming language?",
+    "category": "prose",
+    "expected_keywords": ["interpreted", "compiled", "compiler"],
+    "expected_source_contains": "Python Programming.pdf"
+  },
+  {
+    "id": "py-2",
+    "question": "Is Python an interpreted or a compiled language, and what other language is given as an example of an interpreted language?",
+    "category": "prose",
+    "expected_keywords": ["interpreted", "PHP"],
+    "expected_source_contains": "Python Programming.pdf"
+  },
+  {
+    "id": "py-3",
+    "question": "Who wrote the Python Programming textbook, and in what year was it published?",
+    "category": "prose",
+    "expected_keywords": ["Halvorsen", "2019"],
+    "expected_source_contains": "Python Programming.pdf"
+  },
+  {
+    "id": "py-4",
+    "question": "What operating systems does Python support according to the book?",
+    "category": "prose",
+    "expected_keywords": ["Windows", "macOS", "Linux"],
+    "expected_source_contains": "Python Programming.pdf"
+  },
+  {
+    "id": "py-5",
+    "question": "What is the current stock price of Apple Inc.?",
+    "category": "adversarial",
+    "expected_keywords": [],
+    "expected_source_contains": null
+  },
+  {
+    "id": "py-6",
+    "question": "In the paper-buying agent example, what is the name of the Environment class used to simulate the paper stock?",
+    "category": "coding",
+    "expected_keywords": ["TP_env"],
+    "expected_source_contains": "aipython.pdf",
+    "notes": "'TP_env' is a rare exact token -- a deliberately BM25-favorable lookup to test whether v2/v3's hybrid retrieval (FAISS+BM25) beats v1's pure vector search on identifiers that don't carry much semantic meaning on their own."
+  }
+]

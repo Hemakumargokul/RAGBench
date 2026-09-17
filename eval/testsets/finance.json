@@ -1,0 +1,58 @@
+[
+  {
+    "id": "fin-1",
+    "question": "What has historically caused Acme Robotics' hardware shipment delays?",
+    "category": "prose",
+    "expected_keywords": ["LIDAR", "supply", "delay"],
+    "expected_source_contains": "company_overview.pdf"
+  },
+  {
+    "id": "fin-2",
+    "question": "How many people work in the Support department in the APAC region?",
+    "category": "table",
+    "subtype": "single_row",
+    "expected_keywords": ["APAC", "Support", "19"],
+    "expected_source_contains": "company_overview.pdf"
+  },
+  {
+    "id": "fin-3",
+    "question": "What was the Q2 revenue for the EMEA region for the Warehouse Bot X2 product?",
+    "category": "table",
+    "subtype": "single_row",
+    "expected_keywords": ["1205000", "EMEA"],
+    "expected_source_contains": null,
+    "notes": "same 44-row revenue table is now in company_overview.pdf (14 rows/page, so v1/v2 get one whole page as a single flattened chunk) AND in quarterly_revenue.csv (v3 only). Adjacent rows on the same page (Q2/EMEA/S1=980000, Q2/EMEA/Subscription=301000) are deliberately confusable with the target row."
+  },
+  {
+    "id": "fin-4",
+    "question": "What was Acme Robotics' total revenue across all three products combined in the EMEA region for Q3?",
+    "category": "table",
+    "subtype": "aggregate",
+    "expected_keywords": ["1015000", "1340000", "318000"],
+    "expected_source_contains": null,
+    "notes": "requires retrieving/using all 3 rows (S1+X2+Subscription) for Q3/EMEA to sum to 2,673,000. Tests retrieval completeness across multiple rows, not just single-row lookup -- an area where v1/v2's whole-page chunk (already containing all 3 rows together) could plausibly do just as well as v3's per-row nodes, IF the retriever pulls in all 3 needed v3 nodes."
+  },
+  {
+    "id": "fin-5",
+    "question": "According to the product catalog, what is the price in USD of the Field Service Onsite Visit SKU?",
+    "category": "table",
+    "subtype": "single_row",
+    "expected_keywords": ["800", "FS-ONSITE"],
+    "expected_source_contains": null,
+    "notes": "catalog is now in company_overview.pdf (v1/v2 fair game) as well as product_catalog.json (v3 extra)."
+  },
+  {
+    "id": "fin-6",
+    "question": "What business segments does Acme Robotics operate, and what has previously caused hardware shipment delays?",
+    "category": "cross_doc",
+    "expected_keywords": ["Hardware", "Software", "LIDAR"],
+    "expected_source_contains": "company_overview.pdf"
+  },
+  {
+    "id": "fin-7",
+    "question": "What is Acme Robotics' stock ticker symbol on the NASDAQ?",
+    "category": "adversarial",
+    "expected_keywords": [],
+    "expected_source_contains": null
+  }
+]
