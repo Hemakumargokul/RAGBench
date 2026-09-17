@@ -10,7 +10,7 @@ with the changes.
 Jira ticket created
       │  (Automation rule: "Send web request")
       ▼
-POST https://api.github.com/repos/Hemakumargokul/Information-retrieval-using-RAG/dispatches
+POST https://api.github.com/repos/Hemakumargokul/RAGBench/dispatches
       │  event_type: jira-ticket-created  +  client_payload {key, summary, description, url}
       ▼
 GitHub Actions workflow (.github/workflows/jira-to-pr.yml)
@@ -45,7 +45,7 @@ GitHub Actions workflow (.github/workflows/jira-to-pr.yml)
 Jira needs a token to POST the dispatch. Use **either**:
 
 - **Fine-grained PAT** (recommended): <https://github.com/settings/tokens?type=beta>
-  - Repository access: **Only select repositories** → `Information-retrieval-using-RAG`
+  - Repository access: **Only select repositories** → `RAGBench`
   - Repository permissions: **Contents → Read and write**
     (the `repository_dispatch` endpoint requires the Contents write permission)
 - **Classic PAT**: <https://github.com/settings/tokens> with the `repo` scope.
@@ -72,7 +72,7 @@ In Jira Cloud (`https://hemakumargokul.atlassian.net`):
 
 - **Web request URL:**
   ```
-  https://api.github.com/repos/Hemakumargokul/Information-retrieval-using-RAG/dispatches
+  https://api.github.com/repos/Hemakumargokul/RAGBench/dispatches
   ```
 - **HTTP method:** `POST`
 - **Web request body:** `Custom data`
@@ -125,7 +125,7 @@ curl -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer YOUR_GITHUB_TOKEN" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
-  https://api.github.com/repos/Hemakumargokul/Information-retrieval-using-RAG/dispatches \
+  https://api.github.com/repos/Hemakumargokul/RAGBench/dispatches \
   -d '{
     "event_type": "jira-ticket-created",
     "client_payload": {
